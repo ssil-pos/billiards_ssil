@@ -77,6 +77,7 @@
   </head>
 
   <body>
+    <div style="position:absolute;left:18px;top:14px;z-index:2000;color:#f8fafc;background:rgba(10,14,22,0.72);border:1px solid rgba(255,255,255,0.12);border-radius:999px;padding:8px 12px;backdrop-filter:blur(10px);">SSIL Fourgoo</div>
     <div id="viewP1" class="view3d">
       <div id="snookerScoreOverlay">
         <div id="snookerScore" aria-live="polite">
@@ -103,6 +104,10 @@
       </div>
       <div class="chatarea">
         <div id="chatoutput" class="chatoutput"></div>
+        <div style="display:flex; gap:8px; margin-top:10px;">
+          <input id="chatinputtext" type="text" placeholder="메시지 보내기" style="flex:1; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); color:#fff; border-radius:10px; padding:10px 12px;" />
+          <button id="chatsend" type="button" style="background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.14); border-radius:10px; padding:10px 12px;">전송</button>
+        </div>
       </div>
     </div>
     <div id="panel" class="panel wood-texture">

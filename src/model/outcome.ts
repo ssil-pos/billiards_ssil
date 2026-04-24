@@ -94,6 +94,29 @@ export class Outcome {
     return false
   }
 
+
+  static isFourGooPoint(cueBall, outcomes: Outcome[]) {
+    outcomes = Outcome.cueBallFirst(cueBall, outcomes).filter(
+      (outcome) => outcome.ballA === cueBall
+    )
+    const hitTargets = []
+    let cushions = 0
+    for (const outcome of outcomes) {
+      if (outcome.type === OutcomeType.Cushion) {
+        cushions++
+      }
+      if (outcome.type === OutcomeType.Collision && outcome.ballB) {
+        if (!hitTargets.includes(outcome.ballB)) {
+          hitTargets.push(outcome.ballB)
+        }
+        if (hitTargets.length >= 2) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+
   static cueBallFirst(cueBall, outcomes) {
     outcomes.forEach((o) => {
       if (o.type === OutcomeType.Collision && o.ballB === cueBall) {

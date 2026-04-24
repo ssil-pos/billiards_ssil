@@ -84,7 +84,7 @@ export class BrowserContainer {
     )
     Session.init(
       this.clientId,
-      this.playername,
+      this.playername || (this.ruletype === "fourgoo" ? "P1" : this.playername),
       this.tableId,
       this.spectator,
       this.botMode,

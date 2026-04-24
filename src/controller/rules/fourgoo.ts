@@ -83,8 +83,8 @@ export class FourGoo implements Rules {
   }
 
   update(outcomes: Outcome[]): Controller {
-    if (Outcome.isThreeCushionPoint(this.cueball, outcomes)) {
-      this.container.sound.playSuccess(outcomes.length / 3)
+    if (Outcome.isFourGooPoint(this.cueball, outcomes)) {
+      this.container.sound.playSuccess(Math.max(1, outcomes.length / 4))
       this.container.sendEvent(new WatchEvent(this.container.table.serialise()))
       this.currentBreak++
       Session.getInstance().addMyScore(1)
@@ -116,7 +116,7 @@ export class FourGoo implements Rules {
   }
 
   isPartOfBreak(outcome: Outcome[]): boolean {
-    return Outcome.isThreeCushionPoint(this.cueball, outcome)
+    return Outcome.isFourGooPoint(this.cueball, outcome)
   }
 
   isEndOfGame(_: Outcome[]): boolean {
