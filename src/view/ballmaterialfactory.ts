@@ -16,7 +16,7 @@ export class BallMaterialFactory {
 
     const material = new MeshPhongMaterial({
       emissive: 0,
-      flatShading: true,
+      flatShading: false,
       vertexColors: true,
       forceSinglePass: true,
       shininess: 25,
@@ -50,9 +50,9 @@ export class BallMaterialFactory {
      */
     const material = new MeshStandardMaterial({
       color: color,
-      roughness: 0.5,
-      metalness: 0,
-      flatShading: true,
+      roughness: 0.38,
+      metalness: 0.02,
+      flatShading: false,
       transparent: false,
       depthWrite: true,
     })

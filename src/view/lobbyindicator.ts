@@ -26,7 +26,7 @@ export class LobbyIndicator {
     } else if (Session.getInstance().spectator) {
       this.ruleType = "spectator"
     } else {
-      this.ruleType = this.rules.rulename
+      this.ruleType = this.rules.rulename === "fourgoo" ? "fourgoo" : this.rules.rulename
     }
     this.element = id("lobbyOverlay")
     this.countElement = document.createElement("span")

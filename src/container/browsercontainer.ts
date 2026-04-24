@@ -92,6 +92,10 @@ export class BrowserContainer {
     )
     Session.getInstance().rematchInfo = Rematch.fromURL(params)
     console.log(Session.getInstance())
+    if (typeof document !== "undefined") {
+      const pageTitle = this.ruletype === "fourgoo" ? "SSIL Fourgoo" : `SSIL ${this.ruletype}`
+      document.title = pageTitle
+    }
   }
 
   cushion(model) {

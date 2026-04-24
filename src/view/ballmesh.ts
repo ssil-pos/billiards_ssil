@@ -1,5 +1,6 @@
 import {
   IcosahedronGeometry,
+  SphereGeometry,
   Matrix4,
   Mesh,
   MeshPhongMaterial,
@@ -18,17 +19,17 @@ import { Trace } from "./trace"
 import { BallMaterialFactory } from "./ballmaterialfactory"
 
 export class BallMesh {
-  private static _ballGeometry: IcosahedronGeometry
+  private static _ballGeometry: SphereGeometry
   private static _shadowGeometry: CircleGeometry
   private static _shadowMaterial: MeshBasicMaterial
   private static readonly _dottedGeometryCache = new Map<
     number,
-    IcosahedronGeometry
+    SphereGeometry
   >()
 
   private static getBallGeometry() {
     if (!this._ballGeometry) {
-      this._ballGeometry = new IcosahedronGeometry(R, 1)
+      this._ballGeometry = new SphereGeometry(R, 48, 32)
     }
     return this._ballGeometry
   }
@@ -93,13 +94,13 @@ export class BallMesh {
   }
 
   initialiseMesh(color: Color, label?: number) {
-    let geometry: IcosahedronGeometry
+    let geometry: SphereGeometry | IcosahedronGeometry
     let material: MeshPhongMaterial | MeshStandardMaterial
     if (label === undefined) {
       const key = color.getHex()
       let cached = BallMesh._dottedGeometryCache.get(key)
       if (!cached) {
-        cached = new IcosahedronGeometry(R, 1)
+        cached = new IcosahedronGeometry(R, 3)
         BallMesh.addDots(cached, color)
         BallMesh._dottedGeometryCache.set(key, cached)
       }

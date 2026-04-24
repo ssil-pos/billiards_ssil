@@ -1,44 +1,32 @@
 /* Chat Overlay */
 .chatarea {
   position: absolute;
-  top: 44px;
-  right: 10px;
-  max-width: 280px;
-  max-height: 400px;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  padding: 0;
+  right: 18px;
+  bottom: 18px;
+  width: min(320px, calc(100vw - 36px));
+  max-height: 44vh;
+  background: rgba(10, 14, 22, 0.78);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 12px 12px 10px;
   z-index: 2000;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.28);
 }
 
 .chatoutput {
-  max-height: 360px;
+  max-height: calc(44vh - 22px);
   overflow: hidden auto;
-  padding: 2px;
-  font-size: 16px;
-  color: #ccc;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #e7edf6;
   overflow-wrap: anywhere;
 }
 
-.chatoutput a {
-  overflow-wrap: anywhere;
-}
-
-.chatoutput::-webkit-scrollbar {
-  width: 8px;
-}
-
-.chatoutput::-webkit-scrollbar-track {
-  background: #222;
-}
-
-.chatoutput::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 4px;
-}
-
-.chatoutput::-webkit-scrollbar-thumb:hover {
-  background: #777;
-}
+.chatoutput a { overflow-wrap: anywhere; }
+.chatoutput::-webkit-scrollbar { width: 8px; }
+.chatoutput::-webkit-scrollbar-track { background: rgba(255,255,255,0.06); }
+.chatoutput::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.24); border-radius: 999px; }
+.chatoutput::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.34); }
