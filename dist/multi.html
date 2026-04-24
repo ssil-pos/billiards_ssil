@@ -1,119 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
-    <title>
-      Multiplayer Billiards - Free Online Pool Game Modes | Break Builder
-    </title>
-    <link rel="icon" type="image/png" href="favicon.png" />
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="description"
-      content="Play free multiplayer billiards online. Nineball, three cushion, 14-1, and snooker game modes with realistic physics simulation. Open source and browser-based."
-    />
-    <meta name="robots" content="index,follow" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <link
-      rel="canonical"
-      href="https://tailuge.github.io/billiards/dist/multi.html"
-    />
-    <meta
-      property="og:title"
-      content="Multiplayer Billiards - Free Online Pool Game Modes"
-    />
-    <meta
-      property="og:description"
-      content="Play free multiplayer billiards online. Open source pool game with realistic physics."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://tailuge.github.io/billiards/dist/multi.html"
-    />
-    <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Multiplayer Billiards - Free Online Pool Game Modes"
-    />
-    <meta
-      name="twitter:description"
-      content="Play free multiplayer billiards online. Open source and browser-based."
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSIL Fourgoo Lobby</title>
   </head>
-
-  <body>
-    <h1>SSIL Fourgoo lobby</h1>
-    quick entry
-    <br />
-    single play
+  <body style="font-family:Inter,system-ui,sans-serif;background:#0f1720;color:#eef2f7;padding:32px;">
+    <h1>SSIL Fourgoo</h1>
+    <p>4구 전용 페이지입니다.</p>
     <ul>
-      <li><a href="/">single play nineball</a></li>
-      <li>
-        <a href="/?ruletype=fourgoo">single play fourgoo</a>
-        <a href="/?ruletype=threecushion">single play three cushion</a>
-      </li>
-      <li>
-        <a href="/?ruletype=fourteenone">single play 14-1</a>
-      </li>
-      <li>
-        <a href="/?ruletype=snooker">single play snooker</a>
-      </li>
-      <li>
-        <a href="/?ruletype=eightball">single play eightball</a>
-      </li>
+      <li><a href="./index.html" style="color:#8dd3ff;">혼자 연습</a></li>
+      <li><a class="addwss" href="./2p.html?ruletype=fourgoo" style="color:#8dd3ff;">온라인 대전</a></li>
     </ul>
-    online / versus
-    <ul>
-      <li>
-        <a class="addwss" href="./2p.html?ruletype=nineball"
-          >online / versuss nineball in single window</a
-        >
-        for quick testing
-      </li>
-      <li>
-        <a class="addwss" href="./2p.html?ruletype=fourgoo"
-          >online fourgoo</a
-        >
-        <a class="addwss" href="./2p.html?ruletype=threecushion"
-          >online / versuss three cushion in single window</a
-        >
-      </li>
-      <li>
-        <a class="addwss" href="./2p.html?ruletype=fourteenone"
-          >online / versuss 14-1 in single window</a
-        >
-      </li>
-      <li>
-        <a class="addwss" href="./2p.html?ruletype=snooker"
-          >online / versuss snooker in single window</a
-        >
-      </li>
-      <li>
-        <a class="addwss" href="./2p.html?ruletype=eightball"
-          >online / versuss eightball in single window</a
-        >
-      </li>
-    </ul>
-  </body>
-
-  <script>
-    const server = window.location.origin
-    const wss = server.replace(/^http/, "ws") + "/ws"
-    const urlParams = new URLSearchParams(window.location.search)
-    const shotClock = urlParams.get("shotClock")
-    const wssparam = `websocketserver=${wss}`
-    const elts = document.getElementsByClassName("addwss")
-    for (const elt of elts) {
-      let href = elt.href
-      href += `&${wssparam}`
-      if (shotClock) {
-        href += `&shotClock=${shotClock}`
+    <script>
+      const server = window.location.origin
+      const wss = server.replace(/^http/, "ws") + "/ws"
+      const elts = document.getElementsByClassName("addwss")
+      for (const elt of elts) {
+        elt.href += `&websocketserver=${wss}`
       }
-      elt.href = href
-    }
-  </script>
+    </script>
+  </body>
 </html>

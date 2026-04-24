@@ -68,7 +68,7 @@ export class BrowserContainer {
     this.clientId =
       params.get("userId") ?? params.get("clientId") ?? `G_${getUID()}`
     this.replay = params.get("state")
-    this.ruletype = params.get("ruletype") ?? "nineball"
+    this.ruletype = "fourgoo"
     this.wss = params.get("websocketserver")
     this.canvas3d = canvas3d
     this.cushionModel = this.cushion(params.get("cushionModel"))
