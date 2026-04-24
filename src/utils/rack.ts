@@ -160,6 +160,17 @@ export class Rack {
     }
   }
 
+
+  static fourgoo() {
+    const dx = TableGeometry.X / 2
+    const dy = TableGeometry.Y / 4
+    return [
+      Rack.cueBall(Rack.jitter(new Vector3(-dx, -dy, 0)), 0),
+      new Ball(Rack.jitter(new Vector3(-dx, dy, 0)), 0xe0de36, 1),
+      new Ball(Rack.jitter(new Vector3(dx, 0, 0)), 0xff0000, 2),
+    ]
+  }
+
   static three() {
     const dx = TableGeometry.X / 2
     const dy = TableGeometry.Y / 4
